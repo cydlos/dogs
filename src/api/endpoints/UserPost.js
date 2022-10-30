@@ -9,18 +9,21 @@ const UserPost = () => {
     <div>
       <input
         type="text"
+        placeholder="Username"
         value={username}
         onChange= {({target})=> setUsername(target.value)}
         />
 
       <input
         type="text"
+        placeholder="Email"
         value={email}
         onChange= {({target}) => setEmail(target.value)}
         />
 
       <input
-        type="text"
+        type="password"
+        placeholder="Password"
         value={password}
         onChange= {({target}) => setPassword(target.value)}
         />
