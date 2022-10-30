@@ -1,8 +1,10 @@
 import React from 'react';
+import './App.css';
+import Api from './api/API';
 
 function App() {
   return (
-    <div> App React</div>
+    <div> <Api /></div>
   );
 }
 
