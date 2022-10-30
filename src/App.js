@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Api from './api/API';
+import Api from './api/Api';
 
 function App() {
   return (

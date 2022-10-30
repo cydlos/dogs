@@ -1,7 +1,7 @@
 import React from 'react'
 import UserPost from './endpoints/UserPost'
 
-const API = () => {
+const Api = () => {
   return (
     <div>
       <h2>User Post</h2>
@@ -10,4 +10,4 @@ const API = () => {
   )
 }
 
-export default API
+export default Api;
