@@ -9,7 +9,10 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form action>
-        <input type="user" name id placeholder="Usuário" />
+        <input
+        type="text"
+        value={username}
+        onChange={({target}) => setUsername(target.value)} />
       </form>
       <Link to="/login/criar">Cadastro</Link>
     </section>
