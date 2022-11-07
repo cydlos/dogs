@@ -17,6 +17,7 @@ const useForm = (type) => {
       setError("Preencha um valor");
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
+      // types[type] equivale a types.email, que não pode ser usado aqui pois inclui string.
       setError(types[type].message);
       return false;
     } else {
