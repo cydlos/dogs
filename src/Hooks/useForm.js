@@ -14,7 +14,7 @@ const useForm = (type) => {
   function validate(value) {
     if (type === false) return true;
     if (value.length === 0) {
-      setError("Preencha um valor");
+      setError("Insira um valor");
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
       // types[type] equivale a types.email, que não pode ser usado aqui pois inclui string.
@@ -27,6 +27,7 @@ const useForm = (type) => {
   }
 
   function onChange({ target }) {
+    validate(target.value);
     setValue(target.value);
   }
 
