@@ -1,24 +1,23 @@
-import React from "react";
+import React from 'react';
 
 const types = {
   email: {
-    regex:
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     ,
-    message: "Email inválido",
+    message: 'Insira um email válido',
   },
 };
+
 const useForm = (type) => {
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(null);
 
   function validate(value) {
     if (type === false) return true;
     if (value.length === 0) {
-      setError("Insira um valor");
+      setError('Insira um valor.');
       return false;
     } else if (types[type] && !types[type].regex.test(value)) {
-      // types[type] equivale a types.email, que não pode ser usado aqui pois inclui string.
       setError(types[type].message);
       return false;
     } else {
@@ -28,7 +27,7 @@ const useForm = (type) => {
   }
 
   function onChange({ target }) {
-    validate(target.value);
+    if (error) validate(target.value);
     setValue(target.value);
   }
 
@@ -38,7 +37,6 @@ const useForm = (type) => {
     onChange,
     error,
     validate: () => validate(value),
-    // Passado como método.
     onBlur: () => validate(value),
   };
 };
