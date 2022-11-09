@@ -8,7 +8,7 @@ const LoginForm = () => {
   const username = useForm();
   const password = useForm();
   console.log(username.value);
-  console.log(password.value);
+  console.log(password.validate());
 
   function handleSubmit(event) {
     event.preventDefault();
