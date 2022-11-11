@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import useForm from "../../Hooks/useForm";
-import { TOKEN_POST } from "../../api";
+import { TOKEN_POST, USER_GET } from "../../api";
 
 const LoginForm = () => {
   const username = useForm("email");
   const password = useForm();
 
   async function getUser(token) {
-    const response = fetch("https://dogsapi.origamid.dev/json/api/user", {
-
+    const { url, options } = USER_GET(token);
+    const response = fetch()
   }
 
   async function handleSubmit(event) {
