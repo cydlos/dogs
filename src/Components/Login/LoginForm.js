@@ -9,6 +9,11 @@ const LoginForm = () => {
   const username = useForm("email");
   const password = useForm();
 
+  async function getUser(token) {
+    const response = fetch("https://dogsapi.origamid.dev/json/api/user", {
+
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -21,6 +26,7 @@ const LoginForm = () => {
       const response = await fetch(url, options)
       const json = await response.json();
       window.localStorage.setItem('token', json.token);
+      getUser(json.token);
     }
   }
 

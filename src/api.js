@@ -12,3 +12,16 @@ export function TOKEN_POST (body) {
     },
   };
 }
+
+export function USER_GET(token) {
+  return {
+    url: API_URL + '/api/user',
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    },
+  };
+
+}
