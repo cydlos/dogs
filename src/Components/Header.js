@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { ReactComponent as Dogs } from "../Assets/dogs.svg";
+import { UserContext } from "../UserContext";
 
 const Header = () => {
+  const usuario = React.useContext(UserContext);
+  console.log(usuario);
+
   return (
     <div className={styles.header}>
       <nav className={`${styles.nav} container`}>

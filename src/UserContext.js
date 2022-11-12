@@ -4,7 +4,7 @@ export const UserContext = React.createContext();
 
 export const UserStorage = ({children}) => {
   return (
-    <UserContext.Provider>
+    <UserContext.Provider value={{usuario: "Cyd"}}>
       {children}
     </UserContext.Provider>
   )
