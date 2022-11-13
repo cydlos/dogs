@@ -1,4 +1,6 @@
 import React from "react";
+import { USER_GET } from "./api";
+import { TOKEN_POST } from "./api";
 
 export const UserContext = React.createContext();
 
@@ -9,7 +11,7 @@ export const UserStorage = ({children}) => {
   const [error, setError] = React.useState(null);
 
   async function getUser(token) {
-    const {url, options} = TOKEN_POST(token);
+    const {url, options} = USER_GET(token);
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
