@@ -8,6 +8,12 @@ export const UserStorage = ({children}) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
 
+  async function userLogin(username, password) {
+    const {url, options} = TOKEN_POST({username, password});
+    const tokenRes = await fetch(url, options);
+    const {token} = await tokenRes.json();
+
+
   return (
     <UserContext.Provider value={{usuario: "Cyd"}}>
       {children}
