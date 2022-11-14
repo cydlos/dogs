@@ -16,7 +16,6 @@ export const UserStorage = ({children}) => {
     const json = await response.json();
     setData(json);
     setLogin(true);
-    setLoading(false);
   }
 
 
@@ -30,7 +29,7 @@ export const UserStorage = ({children}) => {
 
 
   return (
-    <UserContext.Provider value={{ userLogin }}>
+    <UserContext.Provider value={{ userLogin, data }}>
       {children}
     </UserContext.Provider>
   )
