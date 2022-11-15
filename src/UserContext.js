@@ -3,22 +3,22 @@ import { TOKEN_POST, USER_GET, TOKEN_VALIDADE_POST } from "./api";
 
 export const UserContext = React.createContext();
 
-export const UserStorage = ({children}) => {
+export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
   const [login, setLogin] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
 
-  React.useEffect (() => {
+  React.useEffect(() => {
     async function autoLogin() {
-      const token = window.localStorage.getItem('token');
+      const token = window.localStorage.getItem("token");
       if (token) {
         try {
           setError(null);
           setLoading(true);
-          const {url, options} = TOKEN_VALIDADE_POST(token);
+          const { url, options } = TOKEN_VALIDADE_POST(token);
           const response = await fetch(url, options);
-          if (!response.ok) throw new Error('Token inválido');
+          if (!response.ok) throw new Error("Token inválido");
           await getUser(token);
         } catch (err) {
           userLogout();
@@ -30,35 +30,33 @@ export const UserStorage = ({children}) => {
     autoLogin();
   }, []);
 
-
   async function getUser(token) {
-    const {url, options} = USER_GET(token);
+    const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
     setLogin(true);
   }
 
-
   async function userLogin(username, password) {
-    const {url, options} = TOKEN_POST({username, password});
+    const { url, options } = TOKEN_POST({ username, password });
     const tokenRes = await fetch(url, options);
-    const {token} = await tokenRes.json();
-    window.localStorage.setItem('token', token);
+    const { token } = await tokenRes.json();
+    window.localStorage.setItem("token", token);
     getUser(token);
   }
 
-  async function userLogout () {
+  async function userLogout() {
     setData(null);
     setError(null);
     setLoading(false);
     setLogin(false);
-    window.localStorage.removeItem('token');
+    window.localStorage.removeItem("token");
   }
 
   return (
     <UserContext.Provider value={{ userLogin, data }}>
       {children}
     </UserContext.Provider>
-  )
+  );
 };
