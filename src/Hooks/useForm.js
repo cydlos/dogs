@@ -40,4 +40,5 @@ const useForm = (type) => {
   };
 };
 
+
 export default useForm;
