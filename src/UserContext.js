@@ -1,6 +1,5 @@
 import React from "react";
-import { USER_GET } from "./api";
-import { TOKEN_POST } from "./api";
+import { TOKEN_POST, USER_GET, TOKEN_VALIDADE_POST } from "./api";
 
 export const UserContext = React.createContext();
 
@@ -49,6 +48,13 @@ export const UserStorage = ({children}) => {
     getUser(token);
   }
 
+  async function userLogout () {
+    setData(null);
+    setError(null);
+    setLoading(false);
+    setLogin(false);
+    window.localStorage.removeItem('token');
+  }
 
   return (
     <UserContext.Provider value={{ userLogin, data }}>
