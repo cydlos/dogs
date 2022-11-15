@@ -39,11 +39,18 @@ export const UserStorage = ({ children }) => {
   }
 
   async function userLogin(username, password) {
+    try {
+      setError(null);
+      setLoading(true);
     const { url, options } = TOKEN_POST({ username, password });
     const tokenRes = await fetch(url, options);
     const { token } = await tokenRes.json();
     window.localStorage.setItem("token", token);
     getUser(token);
+    } catch (err) {
+      setError(err.message);
+      setLogin(false);
+    }
   }
 
   async function userLogout() {
