@@ -10,29 +10,17 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    async function autoLogin() {
-      const token = window.localStorage.getItem("token");
-      if (token) {
-        try {
-          setError(null);
-          setLoading(true);
-          const { url, options } = TOKEN_VALIDADE_POST(token);
-          const response = await fetch(url, options);
-          if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-          await getUser(token);
-        } catch (err) {
-          userLogout();
-          setError(err.message);
-          setLogin(false);
-        } finally {
-          setLoading(false);
-        }
-      }
-    }
-    autoLogin();
-  }, [userLogout]);
+  const userLogout = React.useCallback(
+    async function () {
+      setData(null);
+      setError(null);
+      setLoading(false);
+      setLogin(false);
+      window.localStorage.removeItem("token");
+      navigate("/login");
+    },
+    [navigate]
+  );
 
   async function getUser(token) {
     const { url, options } = USER_GET(token);
@@ -59,14 +47,28 @@ export const UserStorage = ({ children }) => {
     }
   }
 
-  const userLogout = React.useCallback(async function () {
-    setData(null);
-    setError(null);
-    setLoading(false);
-    setLogin(false);
-    window.localStorage.removeItem("token");
-    navigate("/login");
-  }, [navigate]);
+  React.useEffect(() => {
+    async function autoLogin() {
+      const token = window.localStorage.getItem("token");
+      if (token) {
+        try {
+          setError(null);
+          setLoading(true);
+          const { url, options } = TOKEN_VALIDADE_POST(token);
+          const response = await fetch(url, options);
+          if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+          await getUser(token);
+        } catch (err) {
+          userLogout();
+          setError(err.message);
+          setLogin(false);
+        } finally {
+          setLoading(false);
+        }
+      }
+    }
+    autoLogin();
+  }, [userLogout]);
 
   return (
     <UserContext.Provider
