@@ -23,6 +23,7 @@ export const UserStorage = ({ children }) => {
           if (!response.ok) throw new Error(`Error: ${response.statusText}`);
           await getUser(token);
         } catch (err) {
+          userLogout();
           setError(err.message);
           setLogin(false);
         } finally {
@@ -31,7 +32,7 @@ export const UserStorage = ({ children }) => {
       }
     }
     autoLogin();
-  }, []);
+  }, [userLogout]);
 
   async function getUser(token) {
     const { url, options } = USER_GET(token);
@@ -58,17 +59,19 @@ export const UserStorage = ({ children }) => {
     }
   }
 
-  async function userLogout() {
+  const userLogout = React.useCallback(async function () {
     setData(null);
     setError(null);
     setLoading(false);
     setLogin(false);
     window.localStorage.removeItem("token");
     navigate("/login");
-  }
+  }, [navigate]);
 
   return (
-    <UserContext.Provider value={{ userLogin, userLogout, data, error, loading, login }}>
+    <UserContext.Provider
+      value={{ userLogin, userLogout, data, error, loading, login }}
+    >
       {children}
     </UserContext.Provider>
   );
