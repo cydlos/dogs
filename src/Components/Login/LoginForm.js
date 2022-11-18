@@ -6,7 +6,7 @@ import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../UserContext";
 
 const LoginForm = () => {
-  const username = useForm("email");
+  const username = useForm();
   const password = useForm();
   const { userLogin, error, loading } = React.useContext(UserContext);
 
