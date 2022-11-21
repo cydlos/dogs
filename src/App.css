@@ -45,6 +45,14 @@ button, input {
   padding: 0 1rem;
 }
 
+.title {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 3rem;
+  position: relative;
+  margin: 1rem 0;
+}
+
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
