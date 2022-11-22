@@ -26,7 +26,7 @@ li {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #333
 }
 
 img {
@@ -53,6 +53,7 @@ button, input {
   font-size: 3rem;
   position: relative;
   margin: 1rem 0;
+  z-index: 1;
 }
 
 .title::after {
@@ -61,7 +62,11 @@ button, input {
   width: 1.5rem;
   height: 1.5rem;
   position: absolute;
-  background: #fb1
+  bottom: 5px;
+  left: -5px;
+  border-radius: 0.2rem;
+  background: #fb1;
+  z-index: -1;
 }
 .animeLeft {
   opacity: 0;
