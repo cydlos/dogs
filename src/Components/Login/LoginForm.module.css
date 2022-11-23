@@ -21,3 +21,25 @@
   background: currentColor;
   z-index: -1;
 }
+
+.cadastro {
+  margin-top: 4rem;
+}
+
+.cadastro p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.subtitle::after{
+  content: " ";
+  display: block;
+  height: .5rem;
+  background: #ddd;
+}
