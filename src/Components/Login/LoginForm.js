@@ -31,7 +31,6 @@ const LoginForm = () => {
           <Button>Entrar</Button>
         )}
         <Error error={error} />
-        {error && <p>{error}</p>}
       </form>
       <Link to="/login/criar">Cadastro</Link>
     </section>
