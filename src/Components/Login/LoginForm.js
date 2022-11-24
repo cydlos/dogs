@@ -5,6 +5,7 @@ import Button from "../Forms/Button";
 import useForm from "../../Hooks/useForm";
 import Error from "../Helper/Error";
 import styles from "./LoginForm.module.css";
+import stylesBtn from "../Forms/Button.module.css";
 import { UserContext } from "../../UserContext";
 
 const LoginForm = () => {
@@ -39,7 +40,7 @@ const LoginForm = () => {
       <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Link classname={styles.buttonCriar} to="/login/criar">
+        <Link classname={stylesBtn.button} to="/login/criar">
           Cadastro
         </Link>
       </div>

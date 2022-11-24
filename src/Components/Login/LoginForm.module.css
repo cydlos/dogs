@@ -40,6 +40,8 @@
 .subtitle::after{
   content: " ";
   display: block;
-  height: .5rem;
+  height: 0.5rem;
+  width: 3rem;
+  border-radius: 0.2rem;
   background: #ddd;
 }
