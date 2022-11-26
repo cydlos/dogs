@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Input from "../Forms/Input";
+import Button from "../Forms/Button";
+import useForm from "../../Hooks/useForm";
 
 
 const LoginCreate = () => {
+  const username = useForm();
+  const email = useForm("email");
+  const password = useForm("password");
+
   function handleSubmit(event) {
     event.preventDefault();
   }
@@ -11,10 +17,8 @@ const LoginCreate = () => {
     <section className="animeLeft">
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Usuário" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Senha" />
-        <Link>Cadastrar</Link>
+        <Input label="Usuário" type="text" name="username" />
+        <Button>Cadastrar</Button>
       </form>
     </section>
   );
