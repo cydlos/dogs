@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const LoginCreate = () => {
-  return (
-    <div>Login criar
-      
-    </div>
-  )
-}
+  return <section className="animeLeft">
+    <h1>Cadastre-se</h1>
+  </section>;
+};
 
-export default LoginCreate
+export default LoginCreate;
