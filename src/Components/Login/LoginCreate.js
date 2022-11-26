@@ -21,7 +21,6 @@ const LoginCreate = () => {
     });
     const response = await fetch(url, options);
     if (response.ok) userLogin(username.value, password.value);
-    userLogin(username.value, password.value);
     if (response.ok) console.log("Usuário cadastrado");
   }
 
