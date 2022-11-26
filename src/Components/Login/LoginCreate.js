@@ -2,6 +2,7 @@ import React from "react";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import useForm from "../../Hooks/useForm";
+import { USER_POST } from "../../api";
 
 const LoginCreate = () => {
   const username = useForm();
@@ -10,13 +11,12 @@ const LoginCreate = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const url = "https://dogsapi.origamid.dev/json/api/user";
-    const { url, options } = USER_POST({
+    const {url, options} = USER_POST({
       username: username.value,
       email: email.value,
       password: password.value,
     });
-    const response =  await fetch()
+    const response =  await fetch(url, options)
   }
 
   return (
