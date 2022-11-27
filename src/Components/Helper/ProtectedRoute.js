@@ -3,9 +3,8 @@ import { UserContext } from '../../UserContext'
 
 const ProtectedRoute = () => {
   const {login} = React.useContext(UserContext)
-  return (
-    <div>ProtectedRoute</div>
-  )
+  return  login ? <Route {...props} /> : <Navigate to="/login" />;
+
 }
 
 export default ProtectedRoute
