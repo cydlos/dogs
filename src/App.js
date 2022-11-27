@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import Login from "./Components/Login/Login";
+import User from "./User/User";
 import { UserStorage } from "./UserContext";
 
 function App() {
