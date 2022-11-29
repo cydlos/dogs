@@ -2,7 +2,9 @@ import React from 'react'
 
 const UserHeader = () => {
   return (
-    <header>UserHeader</header>
+    <header>
+      <h1 className="title">Título</h1>
+    </header>
   )
 }
 

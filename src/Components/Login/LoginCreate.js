@@ -13,7 +13,7 @@ const LoginCreate = () => {
   const password = useForm("password");
 
   const { userLogin } = React.useContext(UserContext);
-  const {loading, error, request} = useFetch();
+  const { loading, error, request } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -22,7 +22,7 @@ const LoginCreate = () => {
       email: email.value,
       password: password.value,
     });
-    const {response} = await request(url, options);
+    const { response } = await request(url, options);
     if (response.ok) userLogin(username.value, password.value);
     if (response.ok) console.log("Usuário cadastrado");
   }
@@ -37,9 +37,8 @@ const LoginCreate = () => {
         {loading ? (
           <Button disabled>Cadastrando...</Button>
         ) : (
-        <Button>Cadastrar</Button>
+          <Button>Cadastrar</Button>
         )}
-        <Error error={error} />
       </form>
     </section>
   );
