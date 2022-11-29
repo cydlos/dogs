@@ -8,6 +8,7 @@ const User = () => {
     <UserHeader />
     <Routes>
       <Route path="/" element={<Feed />}/>
+      <Route path="posta" element={<UserPhotoPost />}/>
     </Routes>
   </section>
 };
