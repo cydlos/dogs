@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const UserPhotoPost = () => {
-  return (
-    <div>UserPhotoPost</div>
-  )
-}
+  return <div>Postar Foto</div>;
+};
 
-export default UserPhotoPost
+export default UserPhotoPost;
