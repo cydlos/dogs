@@ -19,7 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="login/*" element={<Login />} />
             <Route
-              path="user/*"
+              path="conta/*"
               element={
                 <ProtectedRoute>
                   {" "}
