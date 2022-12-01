@@ -4,7 +4,6 @@ import { UserContext } from "../../UserContext";
 import { ReactComponent as MinhasFotos } from "../../Assets/feed.svg";
 import { ReactComponent as Estatisticas } from "../../Assets/estatisticas.svg";
 import { ReactComponent as AdicionarFoto } from "../../Assets/adicionar.svg";
-import { ReactComponent as Estatisticas } from "../../Assets/estatisticas.svg";
 import { ReactComponent as AdicionarFoto } from "../../Assets/adicionar.svg";
 
 const UserHeaderNav = () => {
@@ -20,7 +19,11 @@ const UserHeaderNav = () => {
         <Estatisticas />
         Estatísticas{" "}
       </NavLink>
-      <NavLink to="/consta/postar"> Adicionar Foto </NavLink>
+      <NavLink to="/consta/postar">
+        {" "}
+        <AdicionarFoto />
+        Adicionar Foto{" "}
+      </NavLink>
       <button onClick={UserLogout}> Sair </button>
     </nav>
   );
