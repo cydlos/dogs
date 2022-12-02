@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../../UserContext";
-import { ReactComponent as MinhasFotos } from "../../Assets/feed.svg";
-import { ReactComponent as Estatisticas } from "../../Assets/estatisticas.svg";
-import { ReactComponent as AdicionarFoto } from "../../Assets/adicionar.svg";
-import { ReactComponent as Sair } from "../../Assets/sair.svg";
+import { UserContext } from "../UserContext";
+import { ReactComponent as MinhasFotos } from "../Assets/feed.svg";
+import { ReactComponent as Estatisticas } from "../Assets/estatisticas.svg";
+import { ReactComponent as AdicionarFoto } from "../Assets/adicionar.svg";
+import { ReactComponent as Sair } from "../Assets/sair.svg";
 
 const UserHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
@@ -24,7 +24,11 @@ const UserHeaderNav = () => {
         <AdicionarFoto />
         Adicionar Foto{" "}
       </NavLink>
-      <button onClick={userLogout}>  <Sair />Sair</button>
+      <button onClick={userLogout}>
+        {" "}
+        <Sair />
+        Sair
+      </button>
     </nav>
   );
 };
