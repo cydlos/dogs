@@ -1,10 +1,11 @@
 import React from 'react'
 import UserHeaderNav from './UserHeaderNav'
+import styles from './UserHeader.module.css'
 
 const UserHeader = () => {
   return (
-    <header>
-      <h1 className="title">Título</h1>
+    <header className={styles.header}>
+      <h1 className="title">Minha Conta</h1>
       <UserHeaderNav />
     </header>
   )
