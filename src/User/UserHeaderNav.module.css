@@ -37,3 +37,25 @@
 .nav a:global(.active) svg > * {
   fill: #fb1;
 }
+
+.mobileButton {
+  height: 40px;
+  width: 40px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2rem;
+  background: #eee;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.mobileButton:hover,
+.mobileButton:focus {
+  border-color: #333;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px #eee;
+}
