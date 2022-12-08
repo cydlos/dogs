@@ -15,10 +15,11 @@ const UserHeaderNav = () => {
 
   return (
     <>
+      {mobile &&
       <button
         aria-label="Menu"
         onClick={() => setMobileMenu(!mobileMenu)}
-      ></button>
+      ></button> }
       <nav className={styles.nav}>
         <NavLink to="/conta" end>
           <MinhasFotos />
