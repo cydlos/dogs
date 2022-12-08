@@ -11,26 +11,33 @@ import styles from "./UserHeaderNav.module.css";
 const UserHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
   const mobile = useMedia("(max-width: 40rem)");
+  const [mobileMenu, setMobileMenu] = React.useState(false);
 
   return (
-    <nav className={styles.nav}>
-      <NavLink to="/conta" end>
-        <MinhasFotos />
-        {mobile && "Minhas Fotos"}
-      </NavLink>
-      <NavLink to="/conta/estatisticas">
-        <Estatisticas />
-        {mobile && "Estatísticas"}
-      </NavLink>
-      <NavLink to="/conta/postar">
-        <AdicionarFoto />
-        {mobile && "Adicionar Foto"}
-      </NavLink>
-      <button onClick={userLogout}>
-        <Sair />
-        {mobile && "Sair"}
-      </button>
-    </nav>
+    <>
+      <button
+        aria-label="Menu"
+        onClick={() => setMobileMenu(!mobileMenu)}
+      ></button>
+      <nav className={styles.nav}>
+        <NavLink to="/conta" end>
+          <MinhasFotos />
+          {mobile && "Minhas Fotos"}
+        </NavLink>
+        <NavLink to="/conta/estatisticas">
+          <Estatisticas />
+          {mobile && "Estatísticas"}
+        </NavLink>
+        <NavLink to="/conta/postar">
+          <AdicionarFoto />
+          {mobile && "Adicionar Foto"}
+        </NavLink>
+        <button onClick={userLogout}>
+          <Sair />
+          {mobile && "Sair"}
+        </button>
+      </nav>
+    </>
   );
 };
 
