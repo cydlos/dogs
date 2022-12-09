@@ -55,23 +55,26 @@
 .mobileButton::after {
   content: "";
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 1.2rem;
   height: 2px;
   background: currentColor;
   box-shadow: 0px 6px currentColor, 0px -6px currentColor ;
   border-radius: 2px;
-  opacity: 0;
-  transition: 0.1s;
 }
 
 .mobileButton:hover,
-.mobileButton:focus {
+.mobileButton:focus,
+.mobileButtonActive {
   border-color: #fb1;
   background: #fff;
   color: #fb1;
   outline: none;
   box-shadow: 0 0 0 3px #fea;
+}
+
+.mobileButtonActive {
+  transform: rotate(90deg);
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 8px currentColor, 0 -8px currentColor;
 }
