@@ -41,7 +41,7 @@
 .mobileButton {
   height: 40px;
   width: 40px;
-  padding: 30px;
+  padding: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,4 +77,14 @@
   width: 4px;
   height: 4px;
   box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}
+
+.mobileButton:focus,
+.mobileButton:hover {
+  border-color: #333;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px #eee;
+}
+
 }
