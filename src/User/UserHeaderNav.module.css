@@ -99,11 +99,23 @@ opacity: 1;
   align-items: center;
   width: 100%;
   height: 40px;
-  padding: 0 1rem;
-  margin: 0.5rem 0;
-  border-radius: 0.2rem;
+  padding: 0.5rem 0;
   background: none;
-  border: 1px solid transparent;
+  border: none;
   transition: 0.1s;
   cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.navMobile a:hover svg > *,
+.navMobile button:hover svg > *{
+  fill: #fb1;
+}
+
+.navMobile button{
+  border-bottom: none;
+}
+
+.navMobile svg {
+  margin-right: 0.5rem;
 }
