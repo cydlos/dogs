@@ -9,7 +9,7 @@ const types = {
     regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
     message: 'A senha precisa ter 1 caracter alfanumérico, 1 caracter especial e no mínimo 8 caracteres.',
   },
-
+number:  { }
 };
 
 const useForm = (type) => {
