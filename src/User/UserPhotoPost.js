@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./UserPhotoPost.module.css";
-import Input from "../Forms/Input";
+import Input from "../Components/Forms/Input";
 import useForm from "../Hooks/useForm";
-import Button from "../Forms/Button";
+import Button from "../Components/Forms/Button";
 import useFetch from "../Hooks/useFetch";
-import { PHOTO_POST } from "../../api";
+import { PHOTO_POST } from "../api";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -41,8 +41,8 @@ const UserPhotoPost = () => {
     <section className={` ${styles.photoPost} animeLeft`}>
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome}/>
-        <Input label="Peso" type="text" name="peso" {...peso}/>
-        <Input label="Idade" type="text" name="idade" {...idade} />
+        <Input label="Peso" type="number" name="peso" {...peso}/>
+        <Input label="Idade" type="number" name="idade" {...idade} />
         <Input type="file" name="img" id="img" onChange={handleImgChange} />
         <Button>Enviar</Button>
       </form>
