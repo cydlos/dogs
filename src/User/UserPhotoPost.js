@@ -22,7 +22,7 @@ const UserPhotoPost = () => {
     formData.append("peso", peso.value);
     formData.append("idade", idade.value);
 
-    // não pode ser um json pois inclui um arquivo de imagem, por isso é Form Data
+    // não pode ser um json pois inclui um arquivo de imagem, por isso utiliza-se Form Data
 
     const token = window.localStorage.getItem("token");
 
