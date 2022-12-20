@@ -46,6 +46,25 @@ const UserPhotoPost = () => {
         <Input type="file" name="img" id="img" onChange={handleImgChange} />
         <Button>Enviar</Button>
       </form>
+      <div>
+        {loading ? (
+          <Button disabled>Enviando...</Button>
+        ) : (
+          <Button>Enviar</Button>
+        )}
+        {error && <p>{error}</p>}
+        {data && (
+          <p>
+            <img src={data.src} alt={data.nome} />
+          </p>
+        )}
+        {img.preview && (
+          <div
+            className={styles.preview}
+            style={{ backgroundImage: `url('${img.preview}')` }}
+          ></div>
+        )}
+      </div>
     </section>
   );
 };
