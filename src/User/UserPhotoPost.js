@@ -4,6 +4,7 @@ import Input from "../Components/Forms/Input";
 import useForm from "../Hooks/useForm";
 import Button from "../Components/Forms/Button";
 import useFetch from "../Hooks/useFetch";
+import Error from "../Components/Helper/Error";
 import { PHOTO_POST } from "../api";
 
 const UserPhotoPost = () => {
@@ -58,7 +59,7 @@ const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        {error && <p>{error}</p>}
+        <Error error={error} />
         {data && (
           <p>
             <img src={data.src} alt={data.nome} />
