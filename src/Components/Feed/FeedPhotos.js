@@ -4,6 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 import { PHOTOS_GET } from "../../api";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading";
+import styles from "./FeedPhotos.module.css";
 
 const FeedPhotos = () => {
   const { data, error, loading, request } = useFetch();
@@ -13,6 +14,7 @@ const FeedPhotos = () => {
       const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
       // user 0 porque não vai puxar de nenhum usuário específico.
       const { response, json } = await request(url, options);
+      console.log(json);
     }
     fetchPhotos();
   }, [request]);
