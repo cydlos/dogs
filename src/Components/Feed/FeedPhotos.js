@@ -10,8 +10,10 @@ const FeedPhotos = () => {
     async function fetchPhotos() {
       const {url, options} = PHOTOS_GET({page: 1, total: 6, user: 0});
       // user 0 porque não vai puxar de nenhum usuário específico.
-      request (url, options);
-
+      request (url, options) }
+    fetchPhotos();
+  }, [request]);
+  
 
   return (
     <div>
