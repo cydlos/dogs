@@ -1,12 +1,6 @@
 import React from 'react'
 import FeedModal from './FeedModal'
-import useFetch from '../../Hooks/useFetch'
-import { PHOTOS_GET } from '../../api'
-import Error from '../Helper/Error'
-import Loading from '../Helper/Loading'
-import styles from './Feed.module.css'
-
-// posts photos in the feed directly from UserPhotoPost
+import FeedPhotos from './FeedPhotos'
 
 const Feed = () => {
   return <div>
