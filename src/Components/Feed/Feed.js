@@ -1,5 +1,4 @@
 import React from 'react'
-import FeedPhotos from './FeedPhotos'
 import FeedModal from './FeedModal'
 import useFetch from '../../Hooks/useFetch'
 import { PHOTOS_GET } from '../../api'
