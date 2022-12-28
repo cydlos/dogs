@@ -21,7 +21,7 @@
   grid-area: 1/1;
 }
 
-.photo span {
+.visualizacao {
   background: rgba (0, 0, 0, 0.3);
   color: #fff;
   font-size: 1rem;
@@ -32,6 +32,15 @@
   display: none;
 }
 
-.photo:hover span {
+.visualizacao::before {
+  content: " ";
+  width: 16px;
+  height: 10px;
+  display: inline-block;
+  margin-right: .25rem;
+  background: url('../../Assets/visualizacao.svg') no-repeat center center;');
+}
+
+.photo:hover .visualizacao {
   display: flex;
 }
