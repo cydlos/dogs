@@ -14,11 +14,11 @@ const FeedModal = ({ photo }) => {
   }, [photo, request]);
 
   return (
-  <div className={styles.modal}>
-    {error && <Error />}
-    {loading && <Loading />}
-    <img src={photo.src}  alt=" " />
-  </div>
+    <div className={styles.modal}>
+      {error && <Error error={error} />}
+      {loading && <Loading />}
+      {data && <img src={photo.src} alt=" " />}
+    </div>
   );
 };
 
