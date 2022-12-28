@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import styles from "./FeedModal.module.css";
 
-const FeedModal = () => {
-  return (
-    <div>FeedModal</div>
-  )
-}
+const FeedModal = ({ photo }) => {
+  const { data, loading, error, request } = useFetch();
 
-export default FeedModal
+  return <div className={styles.modal}></div>;
+};
+
+export default FeedModal;
