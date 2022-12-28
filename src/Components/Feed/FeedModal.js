@@ -9,7 +9,7 @@ const FeedModal = ({ photo }) => {
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
-    const { url, options } = PHOTO_GET({ id: photo.id });
+    const { url, options } = PHOTO_GET(photo.id);
     request(url, options);
   }, [photo, request]);
 
