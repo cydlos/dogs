@@ -7,12 +7,14 @@ const FeedModal = ({ photo }) => {
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
-    const { url, options } = PHOTOS_GET({ id: photo.id });
+    const { url, options } = PHOTO_GET({ id: photo.id });
     request(url, options);
   }, [photo, request]);
 
   return (
-  <div className={styles.modal}></div>
+  <div className={styles.modal}>
+    <img src={photo.src}  alt=" " />
+  </div>
   );
 };
 
