@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./FeedModal.module.css";
 import useFetch from "../../Hooks/useFetch";
 import { PHOTO_GET } from "../../api";
+import Error from "../Helper/Error";
+import { Loading } from "../Helper/Loading";
 
 const FeedModal = ({ photo }) => {
   const { data, loading, error, request } = useFetch();
@@ -13,6 +15,8 @@ const FeedModal = ({ photo }) => {
 
   return (
   <div className={styles.modal}>
+    {error && <Error />}
+    {loading && <Loading />}
     <img src={photo.src}  alt=" " />
   </div>
   );
