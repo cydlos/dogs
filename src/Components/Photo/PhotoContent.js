@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./PhotoContent.module.css";
 
 const PhotoContent = ({ data }) => {
   const { photo, comments } = data;
@@ -7,7 +8,7 @@ const PhotoContent = ({ data }) => {
     <div className={styles.photo}>
       <div className={styles.img}>
         {" "}
-        <img src={photo} alt="" />{" "}
+        <img src={photo.src} alt={ photo.title} />
       </div>
     </div>
   );
