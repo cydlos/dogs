@@ -1,8 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const PhotoContent = ({data}) => {
-  return
-    const {photo, comments} = data 
-}
+const PhotoContent = ({ data }) => {
+  const { photo, comments } = data;
 
-export default PhotoContent
+  return (
+    <div className={styles.photo}>
+      <div className={styles.img}>
+        {" "}
+        <img src={photo} alt="" />{" "}
+      </div>
+    </div>
+  );
+};
+
+export default PhotoContent;
