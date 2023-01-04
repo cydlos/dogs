@@ -10,10 +10,13 @@ const PhotoContent = ({ data }) => {
       <div className={styles.img}>
         <img src={photo.src} alt={photo.title} />
         <div className={styles.details}>
-          <p>
-            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
-            <span className={styles.visualizacoes}>{photo.acessos}</span>
-          </p>
+          <div>
+            <p>
+              <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+              <span className={styles.visualizacoes}>{photo.acessos}</span>
+            </p>
+            <h1 className="title"> {photo.title} </h1>
+          </div>
         </div>
       </div>
     </div>
