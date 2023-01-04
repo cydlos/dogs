@@ -56,14 +56,13 @@ const UserPhotoPost = () => {
           id="img"
           onChange={handleImgChange}
         />
-        <Button>Enviar</Button>
-      </form>
-      <div>
-        {loading ? (
+                {loading ? (
           <Button disabled>Enviando...</Button>
         ) : (
           <Button>Enviar</Button>
         )}
+      </form>
+      <div>
         <Error error={error} />
         {data && (
           <p>
