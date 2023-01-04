@@ -18,6 +18,10 @@ const PhotoContent = ({ data }) => {
             <h1 className="title">
               <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
             </h1>
+            <ul className={styles.attributes}>
+              <li>{photo.peso} kg</li>
+              <li>{photo.idade} anos</li>
+            </ul>
           </div>
         </div>
       </div>
