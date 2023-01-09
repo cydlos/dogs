@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./photoComments.module.css";
 
 
-const photoCommentst = ({ comments }) => (
+const photoComments = ({ comments }) => (
   <div>
     {comments.map((comment) => (
       <div key={comment.id} className="comment">
@@ -13,4 +13,4 @@ const photoCommentst = ({ comments }) => (
   </div>
 );
 
-export default photoCommentst;
+export default photoComments;
