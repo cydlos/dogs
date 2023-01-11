@@ -20,8 +20,8 @@ const PhotoContent = ({ data }) => {
               <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
             </h1>
             <ul className={styles.attributes}>
-              <li>{photo.peso} kg</li>({photo.idade} === 1) ?{" "}
-              <li>`${photo.idade} ano` </li> : <li> `${photo.idade} anos` </li>
+              <li>{photo.peso} kg</li>
+              <li>{photo.idade === "1" ? `${photo.idade} ano` : `${photo.idade} anos`}</li>
             </ul>
           </div>
         </div>
