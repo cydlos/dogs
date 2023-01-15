@@ -63,3 +63,23 @@
   margin-right: 0.5rem;
   background: url(../Assets/visualizacoes.svg);
 }
+
+.attributes {
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.attributes li {
+  margin-right: 2rem;
+}
+
+.attributes li::before {
+  content: " ";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+}
