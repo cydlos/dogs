@@ -79,7 +79,11 @@
 .attributes li::before {
   content: " ";
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  height: 20px;
+  margin-top: 5px;
   margin-right: 0.5rem;
+  position: relative;
+  top: 3px;
+  width: 2px;
+  background: #333;
 }
