@@ -1,7 +1,3 @@
-// Give me a form to insert comments in the PhotoCommentsForm.js file:
-
-// Path: src/Components/Photo/PhotoCommentsForm.js
-// Compare this snippet from src/Components/Photo/PhotoCommentsForm.js:
 // import React from "react";
 // import { COMMENT_POST } from "../../api";
 // import useFetch from "../../Hooks/useFetch";
