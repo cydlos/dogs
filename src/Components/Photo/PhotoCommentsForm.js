@@ -11,8 +11,7 @@ const PhotoCommentsForm = (props) => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const { url, options } = COMMENT_POST(props.id, { comment
-    });
+    const { url, options } = COMMENT_POST(props.id, { comment });
     const { response } = await request(url, options);
     if (response.ok) setComment("");
   }
@@ -22,12 +21,14 @@ const PhotoCommentsForm = (props) => {
       <textarea
         id="comment"
         name="comment"
-        placeholder="Comente..."
+        placeholder="Comente :)"
         className={styles.textarea}
         value={comment}
         onChange={({ target }) => setComment(target.value)}
       ></textarea>
-      <button className={styles.button}><Enviar /></button>
+      <button className={styles.button}>
+        <Enviar />
+      </button>
       <Error error={error} />
     </form>
   );
