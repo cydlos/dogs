@@ -13,7 +13,7 @@ const PhotoCommentsForm = (props) => {
     event.preventDefault();
     const { url, options } = COMMENT_POST(props.id, { comment });
     const { response } = await request(url, options);
-    if (response.ok) setComments("");
+    if (response.ok) setComments((comments) => [...comments, comment]));
   }
 
   return (
