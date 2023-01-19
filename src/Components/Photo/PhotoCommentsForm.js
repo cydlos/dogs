@@ -5,15 +5,17 @@ import Error from "../Helper/Error";
 import styles from "./PhotoCommentsForm.module.css";
 import { ReactComponent as Enviar } from "../../Assets/enviar.svg";
 
-const PhotoCommentsForm = (props) => {
-  const [comment, setComments] = React.useState("");
+const PhotoCommentsForm = (id, setComments) => {
+  const [comment, setComment] = React.useState("");
   const { request, error } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
     const { url, options } = COMMENT_POST(props.id, { comment });
     const { response } = await request(url, options);
-    if (response.ok) setComments((comments) => [...comments, comment]));
+    if (response.ok)
+    setComment("");
+    setComments((comments) => [...comments, comment]));
   }
 
   return (
