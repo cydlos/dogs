@@ -6,14 +6,14 @@ import styles from "./PhotoCommentsForm.module.css";
 import { ReactComponent as Enviar } from "../../Assets/enviar.svg";
 
 const PhotoCommentsForm = (props) => {
-  const [comment, setComment] = React.useState("");
+  const [comment, setComments] = React.useState("");
   const { request, error } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
     const { url, options } = COMMENT_POST(props.id, { comment });
     const { response } = await request(url, options);
-    if (response.ok) setComment("");
+    if (response.ok) setComments("");
   }
 
   return (
@@ -24,7 +24,7 @@ const PhotoCommentsForm = (props) => {
         placeholder="Comente :)"
         className={styles.textarea}
         value={comment}
-        onChange={({ target }) => setComment(target.value)}
+        onChange={({ target }) => setComments(target.value)}
       ></textarea>
       <button className={styles.button}>
         <Enviar />
