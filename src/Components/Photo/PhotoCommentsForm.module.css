@@ -42,6 +42,11 @@
   stroke: #fb1
 }
 
+.button:focus svg g,
+.button:hover svg g {
+  animation: latir .6s infinite;
+}
+
 @keyframes latir {
   from {
     opacity: 0;
