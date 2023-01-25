@@ -41,3 +41,12 @@
   fill: #fea;
   stroke: #fb1
 }
+
+@keyframes latir {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
