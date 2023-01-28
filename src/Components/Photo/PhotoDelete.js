@@ -8,6 +8,7 @@ const PhotoDelete = ({ id }) => {
     event.preventDefault();
     const { url, options } = PHOTO_DELETE(id);
     const { response } = await request(url, options);
+    if (response.ok) window.location.reload();
   }
 
   return (
