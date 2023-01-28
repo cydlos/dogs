@@ -8,9 +8,10 @@ import Modal from "../Helper/Modal";
 
 const PhotoDelete = ({ id }) => {
   const [modal, setModal] = React.useState(false);
-  const { loading, request, error, modal } = useFetch();
+  const { loading, request } = useFetch();
   async function handleClick() {
     const confirm = window.confirm("Tem certeza que deseja deletar?");
+    if (confirm) {
     const { url, options } = PHOTO_DELETE(id);
     const { response } = await request(url, options);
     if (response.ok) window.location.reload();
