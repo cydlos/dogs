@@ -12,9 +12,10 @@ const PhotoDelete = ({ id }) => {
   async function handleClick() {
     const confirm = window.confirm("Tem certeza que deseja deletar?");
     if (confirm) {
-    const { url, options } = PHOTO_DELETE(id);
-    const { response } = await request(url, options);
-    if (response.ok) window.location.reload();
+      const { url, options } = PHOTO_DELETE(id);
+      const { response } = await request(url, options);
+      if (response.ok) window.location.reload();
+    }
   }
 
   return (
@@ -23,15 +24,6 @@ const PhotoDelete = ({ id }) => {
         Deletar foto
       </button>
       {loading && <Loading />}
-      <Error error={error} />
-      <Modal open={modal} onClose={() => setModal(false)}>
-        <div className={styles.modal}>
-          <p>Tem certeza que deseja deletar?</p>
-          <button className={styles.delete} onClick={handleClick}>
-            Deletar
-          </button>
-        </div>
-      </Modal>
     </div>
   );
 };
