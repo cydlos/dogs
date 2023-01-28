@@ -21,7 +21,6 @@ const PhotoContent = ({ data }) => {
               ) : (
                 <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
               )}
-              <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
               <span className={styles.visualizacoes}>{photo.acessos}</span>
             </p>
             <h1 className="title">
