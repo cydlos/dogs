@@ -8,8 +8,7 @@ import Modal from "../Helper/Modal";
 
 const PhotoDelete = ({ id }) => {
   const { loading, request, error, modal } = useFetch();
-  async function handleClick(event) {
-    event.preventDefault();
+  async function handleClick() {
     const { url, options } = PHOTO_DELETE(id);
     const { response } = await request(url, options);
     if (response.ok) window.location.reload();
