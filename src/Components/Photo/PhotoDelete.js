@@ -20,7 +20,7 @@ const PhotoDelete = ({ id }) => {
 
   return (
     <div>
-      { loading? <button onClick={handleClick} className={styles.delete}>
+      { loading? <button className={styles.delete} disabled>
         Deletar foto
       </button> : <button onClick={handleClick} className={styles.delete}>
         Deletar foto
