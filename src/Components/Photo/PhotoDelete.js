@@ -2,9 +2,6 @@ import React from "react";
 import styles from "./PhotoDelete.module.css";
 import { PHOTO_DELETE } from "../../api";
 import useFetch from "../../Hooks/useFetch";
-import Error from "../Helper/Error";
-import Loading from "../Helper/Loading";
-import Modal from "../Helper/Modal";
 
 const PhotoDelete = ({ id }) => {
   const [modal, setModal] = React.useState(false);
