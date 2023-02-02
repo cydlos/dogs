@@ -13,8 +13,7 @@ const PhotoContent = ({ data }) => {
   return (
     <div className={styles.photo}>
       <div className={styles.img}>
-        <Image />
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title} />
         <div className={styles.details}>
           <div>
             <p className={styles.author}>
