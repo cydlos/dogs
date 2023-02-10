@@ -2,13 +2,13 @@ import React from 'react'
 import FeedModal from './FeedModal'
 import FeedPhotos from './FeedPhotos'
 
-const Feed = () => {
+const Feed = ({user}) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
 
   return (
     <div>
       {modalPhoto && (
-        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
+        <FeedModal user={user} photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
       <FeedPhotos setModalPhoto={setModalPhoto} />
     </div>
