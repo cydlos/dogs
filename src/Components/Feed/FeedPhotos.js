@@ -11,8 +11,7 @@ const FeedPhotos = ({ user, page, setModalPhoto }) => {
 
   React.useEffect(() => {
     async function fetchPhotos() {
-      const { url, options } = PHOTOS_GET({ page, total: 5, user });
-      // user 0 porque não vai puxar de nenhum usuário específico.
+      const { url, options } = PHOTOS_GET({ page, total: 3, user });
       const { json } = await request(url, options);
       console.log(json);
     }
