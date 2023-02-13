@@ -12,6 +12,13 @@ const Feed = ({ user }) => {
     function infiniteScroll() {
       const scroll = window.scrollY;
       const height = document.body.offsetHeight - window.innerHeight;
+      if (scroll > height * 0.75 && infinite && !wait) {
+        setPages((pages) => [...pages, pages.length + 1]);
+        wait = true;
+        setTimeout(() => {
+          wait = false;
+        }, 500);
+      }
     }
 
     window.addEventListener("wheel", infiniteScroll);
