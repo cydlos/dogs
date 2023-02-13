@@ -4,6 +4,7 @@ import FeedPhotos from "./FeedPhotos";
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
+  const [pages, setPages] = React.useState([1, 2]);
 
   React.useEffect(() => {
     function infiniteScroll() {
@@ -26,14 +27,11 @@ const Feed = ({ user }) => {
   return (
     <div>
       {modalPhoto && (
-        <FeedModal
-          user={user}
-          photo={modalPhoto}
-          setModalPhoto={setModalPhoto}
-        />
+        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
-      <FeedPhotos user={user} page='1' setModalPhoto={setModalPhoto} />
-      <FeedPhotos user={user} page='2' setModalPhoto={setModalPhoto} />
+      {pages.map((page) => (
+        <FeedPhotos user={user} page={page} setModalPhoto={setModalPhoto} />
+      ))}
     </div>
   );
 };
