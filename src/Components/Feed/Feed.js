@@ -6,7 +6,11 @@ const Feed = ({user}) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
 
   React.useEffect(() => {
-    window.addEventListener('wheel') 
+    function  infiniteScroll() {
+
+    }
+    
+    window.addEventListener('wheel', infiniteScroll)
   })
 
   return (
