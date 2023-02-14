@@ -10,14 +10,16 @@ const Feed = ({ user }) => {
   React.useEffect(() => {
     let wait = false;
     function infiniteScroll() {
-      const scroll = window.scrollY;
-      const height = document.body.offsetHeight - window.innerHeight;
-      if (scroll > height * 0.75 && infinite && !wait) {
-        setPages((pages) => [...pages, pages.length + 1]);
-        wait = true;
-        setTimeout(() => {
-          wait = false;
-        }, 500);
+      if (infinite) {
+        const scroll = window.scrollY;
+        const height = document.body.offsetHeight - window.innerHeight;
+        if (scroll > height * 0.75 && infinite && !wait) {
+          setPages((pages) => [...pages, pages.length + 1]);
+          wait = true;
+          setTimeout(() => {
+            wait = false;
+          }, 500);
+        }
       }
     }
 
@@ -35,7 +37,13 @@ const Feed = ({ user }) => {
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
       {pages.map((page) => (
-        <FeedPhotos user={user} page={page} setModalPhoto={setModalPhoto} />
+        <FeedPhotos
+          key={page}
+          user={user}
+          page={page}
+          setModalPhoto={setModalPhoto}
+          setInfinite={setInfinite}
+        />
       ))}
     </div>
   );
