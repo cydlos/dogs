@@ -1,22 +1,22 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
+import useFetch from "../../Hooks/useFetch";
+import { PHOTO_GET } from "../../api";
 
 const Photo = () => {
-  const {id} = useParams();
-  const {data, loading, error, request} = useFetch();
+  const { id } = useParams();
+  const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
-    async function fetchPhoto() {
-      const {url, options} = PHOTOS_GET(id);
-      const {response, json} = await request(url, options);
-      console.log(json);
-    }
-    fetchPhoto();
-  }, [request, id]);
+    const { url, options } = PHOTO_GET(id);
+    request(url, options);
+  }, [id, request]);
 
-  return (
-    <div>{id}</div>
-  )
-}
+  if (error) return <div>{error}</div>;
 
-export default Photo
+  if (loading) return <div>Loading...</div>;
+
+  if (data) return <div>{id}</div>;
+};
+
+export default Photo;
