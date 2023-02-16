@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../Hooks/useFetch";
 import { PHOTO_GET } from "../../api";
+import Loading from "../Helper/Loading";
+import Error from "../Helper/Error";
 
 const Photo = () => {
   const { id } = useParams();
@@ -12,11 +14,12 @@ const Photo = () => {
     request(url, options);
   }, [id, request]);
 
-  if (error) return <div>{error}</div>;
+  if (error) return <Error error={error} />;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
 
-  if (data) return <div>{id}</div>;
+  if (data) return <section>{id}</section>;
+  else return null;
 };
 
 export default Photo;
