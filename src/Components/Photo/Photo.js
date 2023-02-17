@@ -4,6 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 import { PHOTO_GET } from "../../api";
 import Loading from "../Helper/Loading";
 import Error from "../Helper/Error";
+import PhotoContent from "./PhotoContent";
 
 const Photo = () => {
   const { id } = useParams();
@@ -18,7 +19,12 @@ const Photo = () => {
 
   if (loading) return <Loading />;
 
-  if (data) return <section>{id}</section>;
+  if (data)
+    return (
+      <section className="container mainContainer">
+        <PhotoContent data={data}/>
+      </section>
+    );
   else return null;
 };
 
