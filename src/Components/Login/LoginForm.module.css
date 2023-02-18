@@ -15,11 +15,11 @@
   width: 100%;
   height: 2px;
   /* position: absolute; */
-  bottom: 5px;
-  left: -5px;
+  /* bottom: 5px;
+  left: -5px; */
   border-radius: 0.2rem;
   background: currentColor;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .cadastro {
