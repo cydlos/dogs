@@ -8,3 +8,8 @@
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
+
+.single .comments {
+  padding: 0;
+}
+
