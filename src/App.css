@@ -56,7 +56,8 @@ button, input {
   line-height: 1;
   font-size: 3rem;
   position: relative;
-  margin: 1rem 0;
+  margin: 1rem;
+  /*mudar talvez margin: 1rem 0*/
   z-index: 1;
 }
 
