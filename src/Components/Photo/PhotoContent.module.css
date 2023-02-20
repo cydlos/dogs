@@ -80,7 +80,8 @@
 }
 
 .attributes li {
-  margin-right: 2rem;
+  margin-right: 0rem;
+  margin-left: 1rem;
 }
 
 .attributes li::before {
