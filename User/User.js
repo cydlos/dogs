@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import UserHeader from "./UserHeader";
-import Feed from "../Components/Feed/Feed";
+import Feed from "../Feed/Feed";
 import UserPhotoPost from "./UserPhotoPost";
 import UserStats from "./UserStats";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../../UserContext";
 
 const User = () => {
   const { data } = React.useContext(UserContext);
@@ -13,7 +13,7 @@ const User = () => {
     <section className="container">
       <UserHeader />
       <Routes>
-        <Route path="/" element={<Feed data={data.id }/>} />
+        <Route path="/" element={<Feed data={data.id} />} />
         <Route path="postar" element={<UserPhotoPost />} />
         <Route path="estatisticas" element={<UserStats />} />
       </Routes>
