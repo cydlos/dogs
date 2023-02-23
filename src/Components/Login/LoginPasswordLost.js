@@ -3,6 +3,7 @@ import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
+import { PASSWORD_LOST } from "../../api";
 
 const LoginPasswordLost = () => {
   const login = useForm();
@@ -13,10 +14,9 @@ const LoginPasswordLost = () => {
     if (login.validate()) {
       const { url, options } = PASSWORD_LOST({
         login: login.value,
-        url: "http://localhost:3000/login/resetar",
+        url: "http://localhost:3000/login/perdeu",
       });
-      const { json } = await request(url, options);
-      console.log(json);
+      request(url, options)
     }
   }
 
