@@ -3,6 +3,7 @@ import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
+import Error from "../Helper/Error";
 import { PASSWORD_LOST } from "../../api";
 
 const LoginPasswordLost = () => {
@@ -23,10 +24,19 @@ const LoginPasswordLost = () => {
   return (
     <section>
       <h1 className="title">Perdeu a senha?</h1>
-      <form onSubmit={handleSubmit}>
-        <Input label="Email / Usuário" type="text" name="email" {...login} />
-        <Button> Enviar email </Button>
-      </form>
+      {data ? (
+        <p style={{color: "#4c1"}}>{data}</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <Input label="Email / Usuário" type="text" name="email" {...login} />
+          {loading ? (
+            <Button disabled> Enviando... </Button>
+          ) : (
+            <Button> Enviar email </Button>
+          )}
+        </form>
+      )}
+      <Error error={error} />
     </section>
   );
 };
