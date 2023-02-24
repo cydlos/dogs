@@ -23,6 +23,8 @@ const LoginPasswordReset = () => {
   }, []);
 
   async function handleSubmit(event) {
+    event.preventDefault();
+    if (password.validate()) {
     const { url, options } = PASSWORD_RESET({
       login,
       key,
@@ -36,7 +38,7 @@ const LoginPasswordReset = () => {
     <div>
       <h1 className="title"> Resetar a senha</h1>
       <form onSubmit={handleSubmit}>
-        <Input label="Nova senha" type="password" name="password" />
+        <Input label="Nova senha" type="password" name="password" {...password} />
         {loading ? ( <Button disabled> Resetando... </Button> ) : ( <Button> Resetar </Button> )}
       </form>
       <Error error={error} />
