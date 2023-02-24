@@ -9,14 +9,14 @@ const LoginPasswordLost = () => {
   const login = useForm();
   const { data, error, loading, request } = useFetch();
 
-  async function handleSubmit (event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     if (login.validate()) {
       const { url, options } = PASSWORD_LOST({
         login: login.value,
-        url: "http://localhost:3000/login/perdeu",
+        url: window.location.href.replace("perdeu", "resetar"),
       });
-      request(url, options)
+      request(url, options);
     }
   }
 
@@ -25,7 +25,7 @@ const LoginPasswordLost = () => {
       <h1 className="title">Perdeu a senha?</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Email / Usuário" type="text" name="email" {...login} />
-        <Button> Enviar email </ Button>
+        <Button> Enviar email </Button>
       </form>
     </section>
   );
