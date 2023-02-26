@@ -1,59 +1,48 @@
-import React from "react";
-import Button from "../Forms/Button";
-import Input from "../Forms/Input";
-import useForm from "../../Hooks/useForm";
-import { PASSWORD_RESET } from "../../api";
-import useFetch from "../../Hooks/useFetch";
-import Error from "../Helper/Error";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import Input from '../Forms/Input';
+import Button from '../Forms/Button';
+import useForm from '../../Hooks/useForm';
+import useFetch from '../../Hooks/useFetch';
+import { PASSWORD_LOST } from '../../Api';
+import Error from '../Helper/Error';
+import Head from '../Helper/Head';
 
-const LoginPasswordReset = () => {
-  const [login, setLogin] = React.useState("");
-  const [key, setKey] = React.useState("");
-  const password = useForm();
-  const { loading, error, request } = useFetch();
-  const navigate = useNavigate();
-
-  React.useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get("key");
-    const login = params.get("login");
-    if (key) setKey(key);
-    if (login) setLogin(login);
-  }, []);
+const LoginPasswordLost = () => {
+  const login = useForm();
+  const { data, loading, error, request } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    if (password.validate()) {
-      const { url, options } = PASSWORD_RESET({
-        login,
-        key,
-        password: password.value,
+    if (login.validate()) {
+      const { url, options } = PASSWORD_LOST({
+        login: login.value,
+        url: window.location.href.replace('perdeu', 'resetar'),
       });
-      const { response } = await request(url, options);
-      if (response.ok) navigate("/login");
+      const { json } = await request(url, options);
+      console.log(json);
     }
+  }
 
-    return (
-      <div>
-        <h1 className="title"> Resetar a senha</h1>
+  return (
+    <section>
+      <Head title="Perdeu a senha" />
+      <h1 className="title">Perdeu a senha?</h1>
+      {data ? (
+        <p style={{ color: '#4c1' }}>{data}</p>
+      ) : (
         <form onSubmit={handleSubmit}>
-          <Input
-            label="Nova senha"
-            type="password"
-            name="password"
-            {...password}
-          />
+          <Input label="Email / Usuário" type="text" name="login" {...login} />
           {loading ? (
-            <Button disabled> Resetando... </Button>
+            <Button disabled>Enviando...</Button>
           ) : (
-            <Button> Resetar </Button>
+            <Button>Enviar Email</Button>
           )}
         </form>
-        <Error error={error} />
-      </div>
-    );
-  }
+      )}
+
+      <Error error={error} />
+    </section>
+  );
 };
 
-export default LoginPasswordReset;
+export default LoginPasswordLost;
