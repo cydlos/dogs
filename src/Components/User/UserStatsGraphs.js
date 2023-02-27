@@ -21,10 +21,10 @@ const UserStatsGraphs = ({data}) => {
 
   return (
     <section className={`${styles.graph} animeLeft`}>
-      <div>
+      <div className={`${styles.total} ${styles.graphItem}`}>
         <p className={styles.total}>Acessos: {total}</p>
       </div>
-      <div>
+      <div className={styles.graphItem}>
         <VictoryPie data={graph} innerRadius={50} padding={{top:20, bottom: 20, left: 80, right: 80}}
         style={{
           data: {
@@ -38,7 +38,7 @@ const UserStatsGraphs = ({data}) => {
           },
         }}/>
       </div>
-      <div>
+      <div className={styles.graphItem}>
         <VictoryChart>
           <VictoryBar alignment="start" data={graph} />
         </VictoryChart>
