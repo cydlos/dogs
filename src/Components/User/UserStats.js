@@ -1,9 +1,33 @@
-import React from 'react'
-import Head from './Helper/Head'
+import React from "react";
+import Head from "./Helper/Head";
+import useFetch from "../../Hooks/useFetch";
+import { STATS_GET } from "../../api";
+import Loading from "./Helper/Loading";
+import Error from "./Helper/Error";
 
 const UserStats = () => {
-  <Head title='Estatísticas' />
-  return  <div>UserStats</div>
-}
+  const { data, error, loading, request } = useFetch(
+    `https://dogsapi.origamid.dev/json/api/user`
+  );
 
-export default UserStats
+  React.useEffect(() => {
+    async function getData() {
+      const { url, options } = STATS_GET();
+      await request(url, options);
+    }
+    getData();
+  }, [request]);
+
+  if (error) return <Error error={error} />;
+  if (loading) return <Loading />;
+  if (data)
+    return (
+      <div>
+        <Head title="Estatísticas" />
+        Estatísticas
+      </div>
+    );
+  else return null;
+};
+
+export default UserStats;
