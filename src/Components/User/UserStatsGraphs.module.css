@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .graphItem {
@@ -9,4 +10,19 @@
   border-radius: 2rem;
   display: grid;
   align-items: center;
+}
+
+.total {
+  grid-column: 1 / 3;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 14rem) {
+  .graph {
+    grid-template-columns: 1fr;
+  }
+  .total {
+    grid-column: 1;
+  }
 }
